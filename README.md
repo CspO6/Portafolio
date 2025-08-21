@@ -20,7 +20,8 @@ npm start
 
 ## 📬 Contacto
 ✉️ [sebas172010@gmail.com]
-🔗 [LinkedIn]((https://www.linkedin.com/in/sebastianpenaherrera/))  
+🔗 [LinkedIn](https://www.linkedin.com/in/sebastianpenaherrera/)
+
 
 ---
 ¡Gracias por visitar mi portafolio! 🚀
