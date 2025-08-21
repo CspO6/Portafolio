@@ -1,74 +1,112 @@
-import React from 'react';
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import arrow1 from "../assets/img/arrow1.svg";
-import arrow2 from "../assets/img/arrow2.svg";
-import colorSharp from "../assets/img/color-sharp.png"
+
+import React, { useEffect, useRef, useState } from "react";
+import { Line } from "rc-progress";
+import {
+  SiReact, SiHtml5, SiCss3, SiJavascript, SiTailwindcss, SiTypescript,
+  SiLaravel, SiNodedotjs, SiDotnet, SiSpringboot,
+  SiMysql, SiPostgresql, SiMicrosoftsqlserver,SiAuth0, SiFirebase, SiDocker,SiAngular,
+  SiRender, SiVercel, SiGit, SiGithub, SiHostinger
+} from "react-icons/si";
+import colorSharp from "../assets/img/color-sharp.png";
+
+const SKILLS = {
+  Frontend: [
+    { name: "React", value: 90, icon: SiReact, color: "#61DAFB" },
+    { name: "Angular", value: 80, icon: SiAngular, color: "#DD0031" },       
+    { name: "HTML", value: 90, icon: SiHtml5, color: "#E34F26" },
+    { name: "CSS / Tailwind", value: 85, icon: SiTailwindcss, color: "#06B6D4" },
+    { name: "JavaScript / TypeScript", value: 85, icon: SiTypescript, color: "#3178C6" },
+  ],
+  Backend: [
+    { name: "Spring Boot", value: 85, icon: SiSpringboot, color: "#6DB33F" }, 
+    { name: "Laravel (PHP)", value: 80, icon: SiLaravel, color: "#FF2D20" },
+    { name: "Node.js / Express", value: 70, icon: SiNodedotjs, color: "#339933" },
+    { name: "ASP.NET Core", value: 65, icon: SiDotnet, color: "#512BD4" },
+    
+  ],
+  "Data y Auth": [
+    { name: "SQL (MySQL/PostgreSQL/SQL Server)", value: 75, icon: SiPostgresql, color: "#4169E1" },
+    { name: "JWT / Auth", value: 80, icon: SiAuth0, color: "#EB5424" },    
+  ],
+  DevOps: [
+    { name: "Docker", value: 65, icon: SiDocker, color: "#2496ED" },
+    { name: "Render / Vercel", value: 70, icon: SiRender, color: "#46E3B7" },
+    { name: "Git / GitHub", value: 85, icon: SiGit, color: "#F05032" },
+    { name: "Firebase", value: 70, icon: SiFirebase, color: "#FFCA28" },     
+    { name: "Hostinger", value: 70, icon: SiHostinger, color: "#673DE6" },  
+  ],
+};
+
+function useInViewportOnce() {
+  const ref = useRef(null);
+  const [seen, setSeen] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setSeen(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return { ref, seen };
+}
 
 export const Skills = () => {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
-
   return (
     <section className="skill" id="skills">
-        <div className="container">
-            <div className="row">
-                <div className="col-12">
-                    <div className="skill-bx wow zoomIn">
-                        <h2>Habilidades</h2>
-                        <p>A lo largo de mis años de estudio, he desarrollado sólidas habilidades tanto en frontend como en backend, permitiéndome crear aplicaciones web completas, optimizadas y escalables. En el frontend, me especializo en tecnologías como React, Redux y Tailwind CSS, enfocándome en la experiencia de usuario y el rendimiento. En el backend, tengo experiencia con Laravel y Node.js, gestionando bases de datos, autenticación y lógica de negocio.</p>
-                        <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                            <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>REACT</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>HTML</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>CSS</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>JS</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Laravel</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Node</h5>
-                            </div>
-                            
-                        </Carousel>
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="skill-bx">
+              <h2>Habilidades</h2>
+              <p className="mb-4">
+                Experiencia en frontend y backend para construir apps completas, optimizadas y escalables.
+              </p>
+
+              <div className="row gy-4">
+                {Object.entries(SKILLS).map(([group, items]) => (
+                  <div key={group} className="col-12 col-md-6">
+                    <h5 className="skill-group">{group}</h5>
+                    <div className="d-flex flex-column gap-3">
+                      {items.map(({ name, value, icon: Icon, color }) => (
+                        <div key={name} className="skill-row">
+                          <div className="d-flex justify-content-between align-items-end mb-1">
+                            <span className="skill-name d-inline-flex align-items-center gap-2">
+                              <span className="skill-icon" style={{ color }}>
+                                <Icon size={18} />
+                              </span>
+                              {name}
+                            </span>
+                            <span className="skill-val">{value}%</span>
+                          </div>
+
+                          <Line
+                            percent={value}
+                            strokeWidth={8}
+                            trailWidth={8}
+                            strokeLinecap="round"
+                            strokeColor="#7C3AED"            
+                            trailColor="rgba(255,255,255,0.08)"
+                          />
+                        </div>
+                      ))}
                     </div>
-                </div>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
         </div>
-        <img className="background-image-left" src={colorSharp} alt="Image" />
+      </div>
+
+      <img className="background-image-left" src={colorSharp} alt="" />
     </section>
-  )
-}
+  );
+};
