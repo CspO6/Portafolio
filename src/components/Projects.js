@@ -44,7 +44,6 @@ export const Projects = () => {
       links: {
         live: "https://bookmydrive.onrender.com/",
         repo: "https://github.com/CspO6/BookMyDrive",
-        caseStudy: "https://bookmydrive.onrender.com/caso",
       },
     },
     {

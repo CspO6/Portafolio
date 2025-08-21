@@ -59,7 +59,7 @@ export const Banner = () => {
             </h1>
 
             <p>
-              Soy un ingeniero de software con 27 años, graduado de la ESPOCH, apasionado por el
+              Soy un ingeniero de software con 28 años, graduado de la ESPOCH, apasionado por el
               desarrollo web y backend. Tengo experiencia en tecnologías como HTML, CSS y
               JavaScript, además de trabajar con frameworks modernos como React para el frontend y
               Spring Boot y Laravel para el backend. También manejo bases de datos relacionales como
