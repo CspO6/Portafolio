@@ -1,6 +1,6 @@
 # 🚀 Portafolio Personal
 
-Este es mi portafolio personal desarrollado con **React**, utilizando **React-Bootstrap**,tailwind, **CSS** y **JavaScript**.
+Este es mi portafolio personal desarrollado con **React**, utilizando **React-Bootstrap**, **tailwind**, **CSS** y **JavaScript**.
 
 ## 🛠 Tecnologías utilizadas
 
