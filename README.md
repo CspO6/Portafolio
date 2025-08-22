@@ -1,6 +1,6 @@
 # 🚀 Portafolio Personal
 
-Este es mi portafolio personal desarrollado con **React**, utilizando **React-Bootstrap**, **CSS** y **JavaScript**.
+Este es mi portafolio personal desarrollado con **React**, utilizando **React-Bootstrap**, **tailwind**, **CSS** y **JavaScript**.
 
 ## 🛠 Tecnologías utilizadas
 
@@ -19,8 +19,9 @@ npm start
 ```
 
 ## 📬 Contacto
-✉️ [choco172010@gmail.com]
-🔗 [LinkedIn](https://www.linkedin.com/in/sebastian-pe%C3%B1aherrera-b7103a2b4/)  
+✉️ [sebas172010@gmail.com]
+🔗 [LinkedIn](https://www.linkedin.com/in/sebastianpenaherrera/)
+
 
 ---
 ¡Gracias por visitar mi portafolio! 🚀
