@@ -91,7 +91,6 @@ export const Projects = () => {
         "Búsqueda de fragmentos relevantes usando TF-IDF (rápido y ligero, sin necesidad de embeddings).",
         "Integración con GPT-3.5-Turbo, que recibe los fragmentos más relevantes y genera una respuesta clara y breve.",
         "Archivos almacenados de forma local en uploaded_files/ (sin servicios externos).",
-        "Procesamiento en memoria (no se mantiene índice persistente; se recarga en cada consulta por simplicidad)."
       ],
       links: { repo: "https://github.com/CspO6/qa-mini-asistente" },
     },
